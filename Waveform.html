@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Audio Cutter</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="screen active" id="screenUpload">
+  <div class="uploadBox">
+    <h1>Audio Cutter</h1>
+    <p>A digital tool used to trim and extract specific segments from an audio file</p>
+    <div class="card">
+      <label for="file">Choose your audio File</label>
+      <input type="file" id="file" accept="audio/*">
+    </div>
+    <div class="status" id="statusUpload"></div>
+  </div>
+</div>
+
+<div class="screen" id="screenWorkspace">
+<main>
+  <button class="backBtn" id="backBtn">‹ Back</button>
+
+  <div class="card" id="workspace">
+    <div class="filename" id="filename"></div>
+
+    <div id="canvasWrap">
+      <canvas id="wave"></canvas>
+    </div>
+    <div class="ruler" id="ruler"></div>
+
+    <div class="playRow">
+      <button id="playBtn">▶</button>
+      <div class="timeText"><b id="curTime">0:00</b> / <span id="totalTime">0:00</span></div>
+    </div>
+
+    <div class="cutRow">
+      <div>
+        <label>من</label>
+        <input type="number" id="startInput" min="0" step="0.1">
+      </div>
+      <div class="to">إلى</div>
+      <div>
+        <label>&nbsp;</label>
+        <input type="number" id="endInput" min="0" step="0.1">
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="outlen">The output duration: <b id="outLen">0:00</b></div>
+      <button id="exportBtn">Cut and Download</button>
+    </div>
+    <div class="status" id="status"></div>
+  </div>
+
+  <audio id="player" style="display:none"></audio>
+</main>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
